@@ -54,13 +54,21 @@ class GildedRose
 
 end
 
-class Normal
+
+class ItemHolder
 
   attr_reader :item
 
   def initialize(item)
     @item = item
   end
+
+  def update
+  end
+
+end
+
+class Normal < ItemHolder
 
   def update
     item.sell_in -= 1
@@ -70,13 +78,7 @@ class Normal
   end
 end
 
-class Brie
-
-  attr_reader :item
-
-  def initialize(item)
-    @item = item
-  end
+class Brie < ItemHolder
 
   def update
     item.sell_in -= 1
@@ -86,25 +88,10 @@ class Brie
   end
 end
 
-class Sulfuras
-
-  attr_reader :item
-
-  def initialize(item)
-    @item = item
-  end
-
-  def update
-  end
+class Sulfuras < ItemHolder
 end
 
-class BackstagePass
-
-  attr_reader :item
-
-  def initialize(item)
-    @item = item
-  end
+class BackstagePass < ItemHolder
 
   def update
     item.sell_in -= 1
